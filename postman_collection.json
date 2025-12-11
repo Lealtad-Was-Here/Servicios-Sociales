@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "Servicios Sociales API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "{{baseUrl}}/api/auth/login", "host": ["{{baseUrl}}"], "path": ["api","auth","login"] },
+        "body": { "mode": "raw", "raw": "{\n  \"username\":\"admin\",\n  \"password\":\"admin123\"\n}" }
+      }
+    },
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/api/auth/register", "host": ["{{baseUrl}}"], "path": ["api","auth","register"] },
+        "body": { "mode": "raw", "raw": "{\n  \"username\":\"user1\",\n  \"password\":\"pass123\"\n}" }
+      }
+    },
+    {
+      "name": "Get Beneficiarios",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/beneficiarios", "host": ["{{baseUrl}}"], "path": ["api","beneficiarios"] }
+      }
+    },
+    {
+      "name": "Create Beneficiario",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/beneficiarios", "host": ["{{baseUrl}}"], "path": ["api","beneficiarios"] },
+        "body": { "mode": "raw", "raw": "{\n  \"nombre\":\"Juana\",\n  \"edad\":45,\n  \"tipoServicio\":\"Alimentación\"\n}" }
+      }
+    },
+    {
+      "name": "Export Excel",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/beneficiarios/export/excel", "host": ["{{baseUrl}}"], "path": ["api","beneficiarios","export","excel"] }
+      }
+    },
+    {
+      "name": "Export PDF",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "{{baseUrl}}/api/beneficiarios/export/pdf", "host": ["{{baseUrl}}"], "path": ["api","beneficiarios","export","pdf"] }
+      }
+    }
+  ]
+}
